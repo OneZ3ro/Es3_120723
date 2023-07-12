@@ -1,25 +1,22 @@
 const aggiungiTask = (submitEvent) => {
   submitEvent.preventDefault();
-  const form = submitEvent.target;
-  const new_task_list = form.elements;
-  const lista_task = {};
-
-  for (let i = 0; i < new_task_list.length; i++) {
-    if (new_task_list[i].tagName !== "BUTTON") {
-      lista_task[new_task_list[i].id] = new_task_list[i].value;
-    }
-  }
-  console.log(lista_task);
+  const input = document.getElementById("new_task");
+  console.log(input.value);
 
   const ul_lista = document.getElementById("ul_task_list");
-  const li = document.createElement("li");
-  const delete_btn = document.createElement("button");
 
-  li.innerText = `${lista_task.new_task}`;
-  li.classList.add("task");
-  ul_lista.appendChild(li);
+  ul_lista.innerHTML += `<li>
+  <span onclick="line_through(event)">
+  ${input.value}
+  </span>
+  <button class="del_btn" onclick="cancella(event)">Cancella task</button>
+  </li>`;
+};
 
-  delete_btn.innerText = "elimina task";
-  delete_btn.className = "del_btn";
-  li.appendChild(delete_btn);
+const line_through = (eventClick) => {
+  eventClick.target.classList.toggle("task");
+};
+
+const cancella = (ilclick) => {
+  ilclick.target.parentElement.remove();
 };

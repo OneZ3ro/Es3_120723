@@ -20,6 +20,6 @@ const aggiungiTask = (submitEvent) => {
   ul_lista.appendChild(li);
 
   delete_btn.innerText = "elimina task";
-  delete_btn.classList.add("del_btn");
+  delete_btn.className = "del_btn";
   li.appendChild(delete_btn);
 };

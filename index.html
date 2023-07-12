@@ -7,7 +7,18 @@
     <title>Terzo Esercizio Terza Settimana</title>
 </head>
 <body>
+    <h1>Applicazione per creare nuovi task</h1>
+    <form onsubmit="aggiungiTask(event)">
+        <input type="text" id="new_task" placeholder="Inserisci task" required>
+        <button>Aggiungi task</button>
+    </form>
     
+    <div>
+        <h3>I miei task</h3>
+        <ul id="ul_task_list">
+
+        </ul>
+    </div>
 
     <script src="script.js"></script>
 </body>
